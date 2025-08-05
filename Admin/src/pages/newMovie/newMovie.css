@@ -1,0 +1,155 @@
+
+
+
+
+.newProduct {
+  flex: 4;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.addProductTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Main Form Layout */
+.addProductForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Individual Field Container */
+.addProductItem {
+  flex: 1 1 300px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.addProductItem:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.addProductItem > label {
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.addProductItem > input,
+.addProductItem > select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.addProductItem > input:focus,
+.addProductItem > select:focus {
+  border-color: #3b82f6;
+}
+
+.addProductButton {
+  width: 200px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e3a8a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.3s;
+}
+
+.addProductButton:hover {
+  background-color: #3b82f6;
+}
+
+/* ─────────────── RESPONSIVE BREAKPOINTS ─────────────── */
+
+/* For desktops below 1024px */
+@media (max-width: 1024px) {
+  .addProductForm {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .addProductItem {
+    flex: 1 1 45%;
+  }
+}
+
+/* Tablets and larger phones */
+@media (max-width: 768px) {
+  .addProductForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addProductItem {
+    flex: 1 1 100%;
+  }
+
+  .addProductButton {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .addProductTitle {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .addProductItem {
+    padding: 10px;
+  }
+
+  .addProductItem > input,
+  .addProductItem > select {
+    font-size: 13px;
+  }
+
+  .addProductButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Extra small screens (300px - 400px) */
+@media (max-width: 400px) {
+  .addProductItem {
+    min-width: 100%;
+    padding: 10px;
+  }
+
+  .addProductItem > input,
+  .addProductItem > select {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .addProductButton {
+    font-size: 13px;
+    padding: 8px;
+    width: 100%;
+  }
+}
+
+
+

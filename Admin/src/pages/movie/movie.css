@@ -1,0 +1,232 @@
+.product {
+  flex: 4;
+  padding: 20px;
+}
+
+.productContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productTitle {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.productTop {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.productTopRight {
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.productInfoTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.productImg {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.productName {
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
+
+.movieInfoTable {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.movieInfoTable th,
+.movieInfoTable td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px 12px;
+}
+
+.movieInfoTable th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form section */
+.productBottom {
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  border-radius: 8px;
+}
+
+.productForm {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.productFormLeft {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 280px;
+}
+
+.productFormLeft > label {
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 600;
+}
+
+.productFormLeft > input,
+.productFormLeft > select {
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  outline: none;
+}
+
+.productFormLeft > input:focus {
+  border-color: #3b82f6;
+}
+
+.productFormRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 280px;
+  gap: 20px;
+}
+
+.productUpload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productUploadImg {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.productButton {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.productButton:hover {
+  background-color: #3b82f6;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.productButton[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .productTopRight {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movieInfoTable {
+    font-size: 13px;
+  }
+
+  .productForm {
+    flex-direction: column;
+  }
+
+  .productFormLeft,
+  .productFormRight {
+    width: 100%;
+  }
+
+  .productUpload {
+    justify-content: center;
+  }
+
+  .productButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productImg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .productName {
+    font-size: 16px;
+  }
+
+  .movieInfoTable {
+    font-size: 12px;
+  }
+
+  .productButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

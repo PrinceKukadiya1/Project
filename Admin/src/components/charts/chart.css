@@ -1,0 +1,53 @@
+/* .chart{
+    margin: 20px;
+    padding: 20px;
+     -webkit-box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.chartTitle{
+    margin-bottom: 20px;
+} */
+
+.chart {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 15px -10px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.chartTitle {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .chart {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .chartTitle {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+  .chart {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .chartTitle {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+}

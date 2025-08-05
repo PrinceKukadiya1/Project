@@ -1,0 +1,53 @@
+/* .container{
+    display: flex;
+    margin-top: 10px;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+} */
+
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Layout after Topbar */
+.layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 70px); /* Topbar height */
+}
+
+/* Sidebar + content */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Overlay for mobile menu */
+.overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 950;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .content {
+    padding: 15px;
+  }
+}

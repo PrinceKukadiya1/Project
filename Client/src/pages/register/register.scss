@@ -1,0 +1,89 @@
+.register{
+    height: 100vh;
+    width: 100vw;
+    background:linear-gradient(to bottom, rgba(0,0,0,1)0%, rgba(0,0,0,0.3)100%), url("../../assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  
+    .top{
+        .wrapper{
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo{
+                height: 70px;
+            }
+    
+            .loginButton{
+                cursor: pointer;
+                background-color: red;
+                border: none;
+                color: white;
+                border-radius: 5px;
+                padding: 5px 15px;
+                font-size: 16px;
+                font-weight: 500;
+                position: relative;
+                z-index: 999;
+            }
+        } 
+    }
+
+    .container{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+
+        h1{
+            font-size: 50px;
+        }
+
+        h2{
+            margin: 20px;
+        }
+
+        p{
+            font-size: 20px;
+        }
+
+        .input{
+            width: 50%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            height: 50px;
+            border-radius: 5px;
+
+            input{
+                flex: 9;
+                height: 100%;
+                border: none;
+                padding: 0 10px;
+            }
+
+            .registerButton{
+                flex: 3;
+                height: 100%;
+                border: none;
+                background-color: red;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}

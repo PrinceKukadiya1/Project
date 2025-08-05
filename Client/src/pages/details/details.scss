@@ -1,0 +1,109 @@
+.details {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; // optional for fixed effect
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5vw;
+
+  .info-box {
+    z-index: 1;
+    max-width: 600px;
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .desc {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+
+      span {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+
+      .btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #2196f3;
+        padding: 10px 20px;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: 0.3s ease;
+
+        &:hover {
+          background-color: #1976d2;
+        }
+
+        &.back {
+          background-color: #444;
+
+          &:hover {
+            background-color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .info-box {
+      .title {
+        font-size: 2.2rem;
+      }
+
+      .desc {
+        font-size: 1rem;
+      }
+
+      .meta {
+        font-size: 0.9rem;
+      }
+
+      .buttons .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    padding: 3vw;
+
+    .info-box {
+      .title {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
