@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './myList.scss';
+import './mylist.scss';
 import { Typography, Grid, Card, CardMedia, CardContent, Button } from '@mui/material';
 import { AuthContext } from '../../authContext/AuthContext';
 import { useNavigate } from 'react-router-dom';
