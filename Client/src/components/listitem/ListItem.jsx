@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useContext } from 'react';
-import './listitem.scss';
+import './listItem.scss';
 import { PlayArrow, Add, ThumbUp, ThumbDown, InfoOutlined } from '@mui/icons-material';
 import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
