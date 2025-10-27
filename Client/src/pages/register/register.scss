@@ -1,89 +1,121 @@
-.register{
-    height: 100vh;
-    width: 100vw;
-    background:linear-gradient(to bottom, rgba(0,0,0,1)0%, rgba(0,0,0,0.3)100%), url("../../assets/background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-  
-    .top{
-        .wrapper{
-            padding: 20px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+.register {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 100%),
+    url("../../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 
-            .logo{
-                height: 70px;
-            }
-    
-            .loginButton{
-                cursor: pointer;
-                background-color: red;
-                border: none;
-                color: white;
-                border-radius: 5px;
-                padding: 5px 15px;
-                font-size: 16px;
-                font-weight: 500;
-                position: relative;
-                z-index: 999;
-            }
-        } 
-    }
+  .top {
+    .wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-    .container{
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+      .logo {
+        height: 70px;
+      }
+
+      .loginButton {
+        cursor: pointer;
+        background-color: red;
+        border: none;
         color: white;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        z-index: 999;
+        transition: background-color 0.3s ease; // CHANGED: Added hover effect
 
-        h1{
-            font-size: 50px;
+        &:hover {
+          background-color: darkred;
         }
-
-        h2{
-            margin: 20px;
-        }
-
-        p{
-            font-size: 20px;
-        }
-
-        .input{
-            width: 50%;
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            height: 50px;
-            border-radius: 5px;
-
-            input{
-                flex: 9;
-                height: 100%;
-                border: none;
-                padding: 0 10px;
-            }
-
-            .registerButton{
-                flex: 3;
-                height: 100%;
-                border: none;
-                background-color: red;
-                color: white;
-                font-size: 18px;
-                cursor: pointer;
-            }
-        }
+      }
     }
-    
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center; // CHANGED: Centered content
+
+    h1 {
+      font-size: 50px;
+    }
+
+    h2 {
+      margin: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .input {
+      width: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      height: 50px;
+      border-radius: 5px;
+      overflow: hidden; // CHANGED: Prevent layout shift on button hover
+
+      input {
+        flex: 9;
+        height: 100%;
+        border: none;
+        padding: 0 10px;
+        outline: none; // CHANGED: Fix cursor issue
+        cursor: text; // CHANGED: Ensure text cursor shows
+
+        &::placeholder {
+          color: gray;
+        }
+      }
+
+      .registerButton {
+        flex: 3;
+        height: 100%;
+        border: none;
+        background-color: red;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; // CHANGED: Added hover effect
+
+        &:hover {
+          background-color: darkred;
+        }
+      }
+    }
+  }
+}
+
+/* CHANGED: Toastify custom styles for register page */
+.Toastify__toast {
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.Toastify__toast--success {
+  background-color: #28a745;
+}
+
+.Toastify__toast--error {
+  background-color: #dc3545;
 }

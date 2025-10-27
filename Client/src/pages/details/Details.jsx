@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -15,9 +14,7 @@ const Details = () => {
     const fetchMovie = async () => {
       try {
         const res = await axios.get(`/api/movies/find/${id}`, {
-          headers: {
-            token: 'Bearer ' + user.accessToken,
-          },
+          headers: { token: 'Bearer ' + user.accessToken },
         });
         setMovie(res.data);
       } catch (err) {
@@ -27,16 +24,24 @@ const Details = () => {
     fetchMovie();
   }, [id, user]);
 
-  if (!movie) {
-    return <div className="details">Loading...</div>;
-  }
+  // Disable scroll on detail page
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'auto');
+  }, []);
+
+  if (!movie) return <div className="details">Loading...</div>;
 
   return (
-    <div className="details" style={{ backgroundImage: `url(${movie.img})` }}>
+    <div
+      className="details"
+      style={{ backgroundImage: `url(${movie.img})` }}
+    >
+      <div className="details-overlay" />
       <div className="info-box">
         <h1 className="title">{movie.title}</h1>
-        <p className="desc">{movie.desc}</p>
-        <p className="desc">{movie.ldesc}</p>
+        <p className="short">{movie.desc}</p>
+        <p className="long">{movie.ldesc}</p>
 
         <div className="meta">
           <span><strong>Duration:</strong> {movie.duration}</span>
@@ -50,7 +55,6 @@ const Details = () => {
             <PlayArrow />
             <span>Play</span>
           </Link>
-
           <Link to="/" className="btn back">
             <ArrowBack />
             <span>Back</span>

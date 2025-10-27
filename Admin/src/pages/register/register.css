@@ -1,32 +1,5 @@
-/* .login {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.loginForm {
-  display: flex;
-  flex-direction: column;
-}
-
-.loginInput {
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-.loginButton {
-  background-color: teal;
-  border: none;
-  color: white;
-  padding: 5px;
-  cursor: pointer;
-} */
-
-
 /* Background */
-.loginPage {
+.registerPage {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,20 +11,20 @@
 }
 
 /* Card Container */
-.loginContainer {
+.registerContainer {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  width: 350px;
+  width: 360px;
   text-align: center;
   color: #fff;
   animation: fadeIn 0.6s ease-in-out;
 }
 
 /* Title */
-.loginTitle {
+.registerTitle {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 25px;
@@ -60,14 +33,14 @@
 }
 
 /* Form */
-.loginForm {
+.registerForm {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 /* Inputs */
-.loginInput {
+.registerInput {
   padding: 14px 16px;
   border-radius: 10px;
   border: none;
@@ -78,17 +51,17 @@
   transition: all 0.3s ease;
 }
 
-.loginInput::placeholder {
+.registerInput::placeholder {
   color: #bdbdbd;
 }
 
-.loginInput:focus {
+.registerInput:focus {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 0 2px #6a5acd;
 }
 
 /* Button */
-.loginButton {
+.registerButton {
   padding: 14px;
   border-radius: 10px;
   border: none;
@@ -100,35 +73,30 @@
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.loginButton:hover {
+.registerButton:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #7b68ee, #9370db);
 }
 
-.loginButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Sign up text */
-.signupText {
+/* Login link */
+.loginText {
   margin-top: 18px;
   font-size: 14px;
   color: #ccc;
 }
 
-.signupLink {
+.loginLink {
   color: #7b68ee;
   text-decoration: none;
   font-weight: 600;
 }
 
-.signupLink:hover {
+.loginLink:hover {
   text-decoration: underline;
 }
 
 /* Footer */
-.loginFooter {
+.registerFooter {
   margin-top: 25px;
   font-size: 13px;
   color: #bbb;
@@ -146,4 +114,3 @@
     transform: translateY(0);
   }
 }
-

@@ -1,109 +1,148 @@
 .details {
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; // optional for fixed effect
-  color: white;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 5vw;
+  padding-left: 7%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+/* DARK OVERLAY — like Tumbbad */
+.details-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1.5px);
+  z-index: 0;
+}
+
+/* INFORMATION BOX */
+.info-box {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* TITLE */
+.title {
+  font-size: 3.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* SHORT DESC */
+.short {
+  font-size: 1.1rem;
+  color: #e5e5e5;
+  margin-bottom: 0.8rem;
+}
+
+/* LONG DESC */
+.long {
+  font-size: 1rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* META INFO */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+
+  span {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 20px;
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s all ease;
+
+    &.play {
+      background: #e50914;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(229, 9, 20, 0.5);
+
+      &:hover {
+        background: #b20710;
+        box-shadow: 0 6px 25px rgba(229, 9, 20, 0.7);
+      }
+    }
+
+    &.back {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .details {
+    align-items: flex-end;
+    padding: 20px;
+  }
 
   .info-box {
-    z-index: 1;
-    max-width: 600px;
-
-    .title {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .desc {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-
-      span {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 4px 10px;
-        border-radius: 4px;
-      }
-    }
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-
-      .btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background-color: #2196f3;
-        padding: 10px 20px;
-        color: white;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: 0.3s ease;
-
-        &:hover {
-          background-color: #1976d2;
-        }
-
-        &.back {
-          background-color: #444;
-
-          &:hover {
-            background-color: #333;
-          }
-        }
-      }
-    }
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 12px;
+    padding: 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    .info-box {
-      .title {
-        font-size: 2.2rem;
-      }
-
-      .desc {
-        font-size: 1rem;
-      }
-
-      .meta {
-        font-size: 0.9rem;
-      }
-
-      .buttons .btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-      }
-    }
+  .title {
+    font-size: 2.4rem;
   }
 
-  @media (max-width: 400px) {
-    padding: 3vw;
+  .short,
+  .long {
+    font-size: 1rem;
+  }
+}
 
-    .info-box {
-      .title {
-        font-size: 1.8rem;
-      }
-    }
+/* SIMPLE FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

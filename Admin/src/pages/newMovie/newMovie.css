@@ -1,8 +1,5 @@
 
-
-
-
-.newProduct {
+ .newProduct {
   flex: 4;
   padding: 20px;
   max-width: 100%;
@@ -78,6 +75,87 @@
   background-color: #3b82f6;
 }
 
+/* ─────────────── Upload Progress Styles ─────────────── */
+
+.progress-container {
+  position: relative;
+  width: 100%;
+  background-color: #e4e4e4;
+  border-radius: 8px;
+  height: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.progress-container span {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Small animation when upload completes */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px #2563eb;
+  }
+  50% {
+    box-shadow: 0 0 15px #38bdf8;
+  }
+  100% {
+    box-shadow: 0 0 5px #2563eb;
+  }
+}
+
+.progress-bar[style*="100%"] {
+  animation: pulseGlow 1s ease-in-out infinite;
+}
+
+/* ─────────────── Message Box Styles ─────────────── */
+
+.message-box {
+  margin-top: 25px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.message-box.success {
+  background-color: #e6fbe9;
+  border: 1px solid #22c55e;
+  color: #166534;
+}
+
+.message-box.error {
+  background-color: #fee2e2;
+  border: 1px solid #dc2626;
+  color: #7f1d1d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ─────────────── RESPONSIVE BREAKPOINTS ─────────────── */
 
 /* For desktops below 1024px */
@@ -107,6 +185,11 @@
     width: 100%;
     margin-top: 20px;
   }
+
+  .message-box {
+    font-size: 14px;
+    margin-top: 20px;
+  }
 }
 
 /* Mobile devices (480px and below) */
@@ -129,6 +212,19 @@
     font-size: 14px;
     padding: 10px;
   }
+
+  .progress-container {
+    height: 8px;
+  }
+
+  .progress-container span {
+    font-size: 10px;
+  }
+
+  .message-box {
+    font-size: 13px;
+    padding: 10px;
+  }
 }
 
 /* Extra small screens (300px - 400px) */
@@ -149,7 +245,9 @@
     padding: 8px;
     width: 100%;
   }
+
+  .message-box {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
-
-
-

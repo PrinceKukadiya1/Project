@@ -71,6 +71,14 @@
                 margin-right: 10px;
             }
 
+            .button.details-btn {
+                background-color: #ff2e63; // nice contrast color
+            }
+
+            .button.details-btn:hover {
+                background-color: #ff517b;
+            }
+
             .icon-b{
                 border: 2px solid black;
                 padding: 5px;

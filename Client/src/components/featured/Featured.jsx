@@ -1,83 +1,9 @@
-// import React, { useEffect } from 'react'
-// import './featured.scss'
-// import karma from '../../assets/karma.avif'
-// import batman from '../../assets/batman.jpg';
-// import brother from '../../assets/brother.webp';
-// import { PlayArrow, InfoOutline, Add } from '@mui/icons-material';
-// import axios, { Axios } from "axios"
-
-// const Featured = ({ type , setGenre}) => {
-//     const [content, setContent] = React.useState({})
-
-//     useEffect(() => {
-//         const getRandomContent = async () => {
-//             try {
-//                 const res = await axios.get(`/api/movies/random?type=${type}`, {
-//                     headers: {
-//                         token: 'no eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Nzc2ZjNkYmIzNWZiYjQ1MmYyM2I1YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc1MjcyOTQ2NSwiZXhwIjoxNzUzMTYxNDY1fQ.3Sg14Dtii1R6foYacyDohELKi_6Qt7ACGUpDRtzTif8'
-//                     }
-//                 })
-//                 setContent(res.data[0])
-//             } catch (error) {
-//                 console.log(error)
-//             }
-//         }
-//         getRandomContent();
-//     }, [type])
-
-//     return (
-//         <div className='featured'>
-//             {type && (
-//                 <div className="category">
-//                     <span>{type === "movie" ? "Movies" : "Series"}</span>
-//                     <select name="genre" id="genre" onChange={e => setGenre(e.target.value)}>
-//                         <option>Genre</option>
-//                         <option>Adventure</option>
-//                         <option>Action</option>
-//                         <option>Comedy</option>
-//                         <option>Horror</option>
-//                         <option>Romance</option>
-//                         <option>Documentary</option>
-//                     </select>
-//                 </div>
-//             )}
-
-//             <img src={content.img} alt="" />
-
-//             <div className="info">
-//                 <span className='title'>{content.title}</span>
-//                 <span className="desc">
-//                     {content.desc}
-//                 </span>
-//                 <div className="buttons">
-//                     <button className="play">
-//                         <PlayArrow />
-//                         <span>Play</span>
-//                     </button>
-//                     <button className="more">
-//                         <InfoOutline />
-//                         <span>More Info</span>
-//                     </button>
-//                     <button className="add">
-//                         <Add />
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-
-//     )
-// }
-
-// export default Featured
-
-
 import React, { useEffect, useContext, useState } from 'react';
 import './featured.scss';
-import { PlayArrow, InfoOutline, Add } from '@mui/icons-material';
+import { PlayArrow, InfoOutlined, Add } from '@mui/icons-material';
 import axios from "axios";
 import { AuthContext } from '../../authContext/AuthContext';
 import { Link } from 'react-router-dom';
-
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
@@ -86,67 +12,76 @@ const Featured = ({ type, setGenre }) => {
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        // Step 1: Get random movie ID from top 10 list
         const res = await axios.get(`/api/lists/top10`, {
-          headers: {
-            token: "Bearer " + user.accessToken
-          }
+          headers: { token: "Bearer " + user?.accessToken }
         });
-
-        const randomMovieId = res.data; // must return an ID
-
-        // Step 2: Get full movie details
+        const randomMovieId = res.data;
         const movieRes = await axios.get(`/api/movies/find/${randomMovieId}`, {
-          headers: {
-            token: "Bearer " + user.accessToken
-          }
+          headers: { token: "Bearer " + user?.accessToken }
         });
-
         setContent(movieRes.data);
       } catch (error) {
         console.log("Error fetching featured content:", error);
       }
     };
 
-    getRandomContent();
-  }, [type, user]);
+    if (user?.accessToken) getRandomContent();
+  }, [type, user?.accessToken]);
 
   return (
-    <div className='featured'>
+    <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre" onChange={e => setGenre(e.target.value)}>
-            <option>Genre</option>
-            <option>Adventure</option>
-            <option>Action</option>
-            <option>Comedy</option>
-            <option>Horror</option>
-            <option>Romance</option>
-            <option>Documentary</option>
+          <select
+            name="genre"
+            id="genre"
+            onChange={e => setGenre(e.target.value.toLowerCase())}
+          >
+            <option value="">All</option>
+            <option value="adventure">Adventure</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="horror">Horror</option>
+            <option value="romance">Romance</option>
+            <option value="documentary">Documentary</option>
           </select>
         </div>
       )}
 
-      <img src={content.img} alt={content.title || "featured"} />
+      {content.trailer ? (
+        <video
+          className="featured-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={content.img}
+        >
+          <source src={content.trailer} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <img src={content.img} alt={content.title || "featured"} />
+      )}
+
+      <div className="overlay"></div>
 
       <div className="info">
-        <span className='title'>{content.title}</span>
-        <span className="desc">{content.desc}</span>
+        <h1 className="title">{content.title}</h1>
+        <p className="desc">{content.desc}</p>
         <div className="buttons">
-          <button className="play">
+          <Link to={`/watch`} state={{ movie: content }} className="btn play">
             <PlayArrow />
+            <span>Play</span>
+          </Link>
 
-            <Link to={`/watch`} state={{ movie: content }} className="link">
-              <span>Play</span>
-            </Link>
+          <Link to={`/details/${content._id}`} className="btn more">
+            <InfoOutlined />
+            <span>More Info</span>
+          </Link>
 
-          </button>
-          <button className="more">
-            <InfoOutline />
-            <Link to={`/details/${content._id}`} className="link"> <span>More Info</span></Link>
-          </button>
-          <button className="add">
+          <button className="btn add">
             <Add />
           </button>
         </div>

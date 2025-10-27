@@ -1,21 +1,88 @@
-.watch{
-    height: 100vh;
-    width: 100vw;
+.watch {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; // ✅ Prevent scrollbars
+  position: relative;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .back{
-        display: flex;
-        align-items: center;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: white;
-        cursor: pointer;
-        z-index: 2;
+  .back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.1rem;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; // ✅ Ensures full screen fit
+    background-color: black;
+  }
+
+  // ✅ Loading Spinner
+  .loader-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ff1f1f;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
     }
 
-    .video{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
+  }
+
+  @media (max-width: 768px) {
+    .back {
+      top: 12px;
+      left: 12px;
+      font-size: 0.95rem;
+      padding: 5px 10px;
+    }
+
+    .loader-container .loader {
+      width: 45px;
+      height: 45px;
+    }
+  }
 }
