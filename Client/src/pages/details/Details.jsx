@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../api/axios';
 import { AuthContext } from '../../authContext/AuthContext';
 import { PlayArrow, ArrowBack } from '@mui/icons-material';
 import './details.scss';
@@ -13,7 +13,7 @@ const Details = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`/api/movies/find/${id}`, {
+        const res = await api.get(`/api/movies/find/${id}`, {
           headers: { token: 'Bearer ' + user.accessToken },
         });
         setMovie(res.data);

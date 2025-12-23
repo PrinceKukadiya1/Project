@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import './featured.scss';
 import { PlayArrow, InfoOutlined, Add } from '@mui/icons-material';
-import axios from "axios";
+import api from "../../api/axios";
 import { AuthContext } from '../../authContext/AuthContext';
 import { Link } from 'react-router-dom';
 
@@ -12,11 +12,11 @@ const Featured = ({ type, setGenre }) => {
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/api/lists/top10`, {
+        const res = await api.get(`/api/lists/top10`, {
           headers: { token: "Bearer " + user?.accessToken }
         });
         const randomMovieId = res.data;
-        const movieRes = await axios.get(`/api/movies/find/${randomMovieId}`, {
+        const movieRes = await api.get(`/api/movies/find/${randomMovieId}`, {
           headers: { token: "Bearer " + user?.accessToken }
         });
         setContent(movieRes.data);

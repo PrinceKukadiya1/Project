@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import './register.scss';
 import logo from '../../assets/logo1.png';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import api from '../../api/axios';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Register = () => {
         password: passwordRef.current.value,
         username: usernameRef.current.value,
       };
-      await axios.post('http://localhost:3000/api/auth/register', newUser);
+      await api.post('/api/auth/register', newUser);
       toast.success("Account created successfully! Redirecting...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (error) {

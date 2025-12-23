@@ -3,9 +3,9 @@ import './home.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Featured from '../../components/featured/Featured';
 import List from '../../components/list/List';
-import axios from "axios";
 import Footer from '../../components/footer/Footer';
 import { AuthContext } from '../../authContext/AuthContext';
+import api from '../../api/axios';
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -25,7 +25,7 @@ const Home = ({ type }) => {
 
         if (params.length > 0) url += '?' + params.join('&');
 
-        const res = await axios.get(url, {
+        const res = await api.get(url, {
           headers: { token: "Bearer " + user.accessToken }
         });
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './listItem.scss';
 import { PlayArrow, Add, ThumbUp, ThumbDown, InfoOutlined } from '@mui/icons-material';
-import axios from "axios";
+import api from "../../api/axios";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../authContext/AuthContext';
 
@@ -15,7 +15,7 @@ const ListItem = ({ index, item }) => {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/api/movies/find/" + item, {
+        const res = await api.get("/api/movies/find/" + item, {
           headers: {
             token: "Bearer " + user?.accessToken,
           },
